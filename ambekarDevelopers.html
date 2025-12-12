@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambekar Developers - Premier Real Estate Developers in India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#3B82F6',
+                        accent: '#10B981',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+    </script>
+    <style>
+        .hero-bg { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; }
+        .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .testimonial-carousel { scroll-behavior: smooth; }
+        .stats-counter { font-size: 2.5rem; font-weight: bold; color: primary; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-lg z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary">Ambekar Developers</div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="hover:text-secondary transition">Home</a></li>
+                <li><a href="#about" class="hover:text-secondary transition">About</a></li>
+                <li><a href="#projects" class="hover:text-secondary transition">Projects</a></li>
+                <li><a href="#services" class="hover:text-secondary transition">Services</a></li>
+                <li><a href="#blog" class="hover:text-secondary transition">Blog</a></li>
+                <li><a href="#contact" class="hover:text-secondary transition">Contact</a></li>
+            </ul>
+            <button id="menu-toggle" class="md:hidden">
+                <i class="fas fa-bars text-primary text-xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <ul class="px-6 py-4 space-y-4">
+                <li><a href="#home" class="block hover:text-secondary py-2">Home</a></li>
+                <li><a href="#about" class="block hover:text-secondary py-2">About</a></li>
+                <li><a href="#projects" class="block hover:text-secondary py-2">Projects</a></li>
+                <li><a href="#services" class="block hover:text-secondary py-2">Services</a></li>
+                <li><a href="#blog" class="block hover:text-secondary py-2">Blog</a></li>
+                <li><a href="#contact" class="block hover:text-secondary py-2">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white text-center px-6 relative">
+        <div class="max-w-4xl mx-auto animate-fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Elevate Your Lifestyle</h1>
+            <p class="text-xl md:text-2xl mb-8">Discover premium residential and commercial spaces crafted for excellence. Over 4 decades of trust and innovation.</p>
+            <div class="space-x-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button onclick="scrollToSection('contact')" class="bg-secondary text-white px-8 py-4 rounded-lg hover:bg-blue-400 transition text-lg font-semibold">Enquire Now</button>
+                <button onclick="scrollToSection('projects')" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary transition text-lg font-semibold">Explore Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Legacy of Excellence</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Since 1980, Ambekar Developers has redefined urban living with 150+ projects, delivering 20 million sq. ft. of premium spaces to 25,000+ families across Mumbai, Pune, and Thane.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8 text-center mb-16">
+                <div class="animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="stats-counter" data-target="150">0</div>
+                    <p class="text-gray-600">Projects Delivered</p>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="stats-counter" data-target="20">0</div>
+                    <p class="text-gray-600">Million Sq. Ft.</p>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="stats-counter" data-target="25000">0</div>
+                    <p class="text-gray-600">Happy Families</p>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="stats-counter" data-target="40">0</div>
+                    <p class="text-gray-600">Years of Trust</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center animate-slide-up">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1486406146923-c683a7754cc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Elite Realty" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">Crafting Timeless Spaces</h3>
+                    <p class="text-lg mb-6 text-gray-600">Our commitment to innovation, quality, and sustainability drives every project. From luxurious residences to state-of-the-art commercial hubs, we blend modern design with enduring value.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> RERA Compliant</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Eco-Friendly Designs</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> On-Time Delivery</li>
+                    </ul>
+                    <button onclick="scrollToSection('contact')" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Iconic Projects</h2>
+                <p class="text-xl text-gray-600">Explore our portfolio of residential and commercial masterpieces, strategically located for seamless living.</p>
+            </div>
+            <!-- Filters -->
+            <div class="flex justify-center mb-8 space-x-4 flex-wrap">
+                <button class="filter-btn bg-secondary text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition active" data-filter="all">All</button>
+                <button class="filter-btn text-gray-600 px-6 py-2 rounded-lg hover:bg-gray-200 transition" data-filter="residential">Residential</button>
+                <button class="filter-btn text-gray-600 px-6 py-2 rounded-lg hover:bg-gray-200 transition" data-filter="commercial">Commercial</button>
+                <button class="filter-btn text-gray-600 px-6 py-2 rounded-lg hover:bg-gray-200 transition" data-filter="ongoing">Ongoing</button>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8" id="projects-grid">
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg filter-item all residential animate-slide-up" style="animation-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Elite Towers" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Ambekar Towers - Thane</h3>
+                        <p class="text-gray-600 mb-2">3/4 BHK Luxury Apartments | 1,200-1,800 sq.ft.</p>
+                        <p class="text-sm text-accent mb-4">Near Balkum Naka Metro</p>
+                        <button onclick="openModal('project-modal-1')" class="bg-secondary text-white px-4 py-2 rounded hover:bg-blue-500 transition">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg filter-item all commercial animate-slide-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1486406146923-c683a7754cc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Elite Plaza" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Ambekar Plaza - Mumbai</h3>
+                        <p class="text-gray-600 mb-2">Office Spaces | 500-2,000 sq.ft.</p>
+                        <p class="text-sm text-accent mb-4">Prime Business District</p>
+                        <button onclick="openModal('project-modal-2')" class="bg-secondary text-white px-4 py-2 rounded hover:bg-blue-500 transition">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg filter-item all ongoing residential animate-slide-up" style="animation-delay: 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Elite Greens" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Ambekar Greens - Pune</h3>
+                        <p class="text-gray-600 mb-2">2/3 BHK Eco-Residences | 900-1,500 sq.ft.</p>
+                        <p class="text-sm text-accent mb-4">Under Construction</p>
+                        <button onclick="openModal('project-modal-3')" class="bg-secondary text-white px-4 py-2 rounded hover:bg-blue-500 transition">View Details</button>
+                    </div>
+                </div>
+                <!-- Add more projects as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/Amenities Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 animate-slide-up">World-Class Amenities</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center animate-slide-up" style="animation-delay: 0.1s;">
+                    <i class="fas fa-swimming-pool text-5xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4">Clubhouse & Pools</h3>
+                    <p class="text-gray-600">State-of-the-art clubhouses with infinity pools and fitness centers for ultimate relaxation.</p>
+                </div>
+                <div class="text-center animate-slide-up" style="animation-delay: 0.2s;">
+                    <i class="fas fa-tree text-5xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4">Green Spaces</h3>
+                    <p class="text-gray-600">Lush landscaped gardens and jogging tracks promoting sustainable living.</p>
+                </div>
+                <div class="text-center animate-slide-up" style="animation-delay: 0.3s;">
+                    <i class="fas fa-shield-alt text-5xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4">24/7 Security</h3>
+                    <p class="text-gray-600">Advanced security systems ensuring peace of mind for your family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 animate-slide-up">What Our Residents Say</h2>
+            <div class="testimonial-carousel overflow-hidden relative" id="testimonial-carousel">
+                <div class="flex transition-transform duration-500 ease-in-out" id="carousel-inner">
+                    <div class="min-w-full p-6">
+                        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                            <p class="italic text-lg mb-6">"Ambekar Developers has truly elevated our living standards with unmatched quality and service."</p>
+                            <div class="flex justify-center items-center">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Priya Sharma</h4>
+                                    <p class="text-gray-600">Resident, Ambekar Towers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="min-w-full p-6">
+                        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                            <p class="italic text-lg mb-6">"Timely delivery and innovative designs make Elite Realty our top choice."</p>
+                            <div class="flex justify-center items-center">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Raj Patel</h4>
+                                    <p class="text-gray-600">Business Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more testimonials -->
+                </div>
+                <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg"><i class="fas fa-chevron-right text-primary"></i></button>
+                <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg"><i class="fas fa-chevron-left text-primary"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 animate-slide-up">Insights & Trends</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg animate-slide-up" style="animation-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Blog 1" class="w-full h-48 object-cover rounded mb-4">
+                    <h3 class="text-xl font-bold mb-2">Navigating GST Reforms in Real Estate</h3>
+                    <p class="text-gray-600 mb-4">How recent changes make homebuying more affordable and seamless.</p>
+                    <button class="text-secondary font-semibold">Read More →</button>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg animate-slide-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Blog 2" class="w-full h-48 object-cover rounded mb-4">
+                    <h3 class="text-xl font-bold mb-2">Best Time to Invest in Pune Properties</h3>
+                    <p class="text-gray-600 mb-4">Market analysis and tips for smart investments.</p>
+                    <button class="text-secondary font-semibold">Read More →</button>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg animate-slide-up" style="animation-delay: 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Blog 3" class="w-full h-48 object-cover rounded mb-4">
+                    <h3 class="text-xl font-bold mb-2">Sustainable Living in Urban India</h3>
+                    <p class="text-gray-600 mb-4">Eco-friendly features in modern developments.</p>
+                    <button class="text-secondary font-semibold">Read More →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 animate-slide-up">Get in Touch</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Enquiry Form + Brochure & Floor Plans -->
+            <div class="animate-slide-up">
+                <h3 class="text-3xl font-bold mb-6">Enquiry Form</h3>
+                <form id="contact-form" class="space-y-4">
+                    <input type="text" id="user_name" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary" required>
+                    <input type="email" id="user_email" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary" required>
+                    <input type="tel" id="user_phone" placeholder="Your Phone (+91)" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary" required>
+                    <select class="w-full p-4 border border-gray-300 rounded-lg" id="interested_project">
+                        <option value="">Interested In</option>
+                        <option>Ambekar Towers - Thane</option>
+                        <option>Ambekar Plaza - Mumbai</option>
+                        <option>Ambekar Greens - Pune</option>
+                    </select>
+                    <textarea id="message" placeholder="Your Message (Optional)" rows="3" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary"></textarea>
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg hover:bg-blue-700 transition text-lg font-semibold">
+                        Send Enquiry
+                    </button>
+                </form>
+
+                <!-- Download Brochure & Floor Plans -->
+                <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a href="https://yourdomain.com/brochure.pdf" target="_blank"
+                       class="flex items-center justify-center bg-secondary text-white py-4 rounded-lg hover:bg-blue-600 transition font-semibold">
+                        <i class="fas fa-download mr-3"></i> Download Brochure
+                    </a>
+                    <a href="https://yourdomain.com/floor-plans.pdf" target="_blank"
+                       class="flex items-center justify-center bg-accent text-white py-4 rounded-lg hover:bg-green-600 transition font-semibold">
+                        <i class="fas fa-ruler-combined mr-3"></i> View Floor Plans
+                    </a>
+                </div>
+
+                <!-- WhatsApp Booking CTA -->
+                <a href="https://wa.me/919876543210?text=I%20want%20to%20book%20a%20site%20visit%20/%20virtual%20tour"
+                   target="_blank"
+                   class="mt-6 w-full flex items-center justify-center bg-green-500 text-white py-4 rounded-lg hover:bg-green-600 transition font-semibold">
+                    <i class="fab fa-whatsapp mr-3 text-xl"></i> Book Site Visit via WhatsApp
+                </a>
+            </div>
+
+           
+
+            <!-- EMI Calculator + RERA Details -->
+            <div class="animate-slide-up space-y-8">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">EMI Calculator</h3>
+                    <div class="space-y-4 bg-gray-50 p-6p-6 rounded-lg">
+                        <input type="number" id="loan-amount" placeholder="Loan Amount (₹)" class="w-full p-4 border border-gray-300 rounded-lg">
+                        <input type="number" id="interest-rate" placeholder="Interest Rate (%)" value="8.5" class="w-full p-4 border border-gray-300 rounded-lg">
+                        <input type="number" id="tenure" placeholder="Tenure (Years)" value="20" class="w-full p-4 border border-gray-300 rounded-lg">
+                        <button onclick="calculateEMI()" class="w-full bg-accent text-white py-4 rounded-lg hover:bg-green-600 transition font-semibold">
+                            Calculate Monthly EMI
+                        </button>
+                        <div id="emi-result" class="text-2xl font-bold text-center p-6 bg-white rounded-lg hidden"></div>
+                    </div>
+                </div>
+
+                <!-- RERA Compliance -->
+                <div class="bg-gray-900 text-white p-8 rounded-xl">
+                    <h4 class="text-2xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-certificate text-yellow-400 mr-3"></i> RERA Compliant
+                    </h4>
+                    <div class="space-y-3 text-sm">
+                        <p><strong>Ambekar Towers:</strong> P51700034567</p>
+                        <p><strong>Ambekar Plaza:</strong> P51800029876</p>
+                        <p><strong>Ambekar Greens:</strong> P52100045678</p>
+                        <p class="mt-4 text-gray-300">All projects are registered with Maharashtra RERA.<br>
+                        <a href="https://maharera.mahaonline.gov.in" target="_blank" class="underline hover:text-secondary">Verify on MahaRERA →</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-2xl font-bold mb-4">Contact Details</h4>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i> Corporate Office: Powai, Mumbai</p>
+                    <p class="mb-2"><i class="fas fa-phone text-primary mr-2"></i> +91 98765 43210</p>
+                    <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i> info@ambekardevelopers.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold mb-4">Ambekar Developers</h4>
+                    <p>Premier developers shaping tomorrow's skylines.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#projects" class="hover:underline">Projects</a></li>
+                        <li><a href="#about" class="hover:underline">About Us</a></li>
+                        <li><a href="#blog" class="hover:underline">Blog</a></li>
+                        <li><a href="#contact" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Residential</a></li>
+                        <li><a href="#" class="hover:underline">Commercial</a></li>
+                        <li><a href="#" class="hover:underline">Renovations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex justify-center space-x-4">
+                        <i class="fab fa-facebook text-2xl hover:text-secondary"></i>
+                        <i class="fab fa-instagram text-2xl hover:text-secondary"></i>
+                        <i class="fab fa-linkedin text-2xl hover:text-secondary"></i>
+                    </div>
+                </div>
+            </div>
+            <p>&copy; 2025 Elite Realty. All rights reserved. | RERA: P52100012345</p>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div id="project-modal-1" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <h3 class="text-3xl font-bold mb-4">Ambekar Towers - Thane</h3>
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elite Towers" class="w-full rounded mb-4">
+                <p>Luxury 3/4 BHK apartments with panoramic views, clubhouse, and metro connectivity. Starting at ₹1.5 Cr.</p>
+                <button onclick="closeModal('project-modal-1')" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- Similar modals for other projects -->
+    <div id="project-modal-2" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <h3 class="text-3xl font-bold mb-4">Ambekar Plaza - Mumbai</h3>
+                <img src="https://images.unsplash.com/photo-1486406146923-c683a7754cc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elite Plaza" class="w-full rounded mb-4">
+                <p>Premium office spaces in the heart of the city, with high-speed elevators and 24/7 facilities.</p>
+                <button onclick="closeModal('project-modal-2')" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="project-modal-3" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <h3 class="text-3xl font-bold mb-4">Ambekar Greens - Pune</h3>
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elite Greens" class="w-full rounded mb-4">
+                <p>Eco-friendly 2/3 BHK homes with green certifications, under construction - possession Q4 2026.</p>
+                <button onclick="closeModal('project-modal-3')" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile Menu
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in', 'animate-slide-up');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section > *').forEach(el => observer.observe(el));
+
+        // Stats Counter
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 100;
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 20);
+            });
+        }
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) animateCounters();
+        });
+
+        // Project Filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('bg-secondary', 'text-white', 'active'));
+                btn.classList.add('bg-secondary', 'text-white', 'active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.filter-item').forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                        item.classList.add('animate-slide-up');
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modals
+        function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
+        document.querySelectorAll('[id^="project-modal-"]').forEach(modal => {
+            modal.addEventListener('click', e => { if (e.target === modal) closeModal(modal.id); });
+        });
+
+        // Testimonial Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#carousel-inner > div');
+        function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateCarousel(); }
+        function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateCarousel(); }
+        function updateCarousel() {
+            document.getElementById('carousel-inner').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        setInterval(nextSlide, 5000); // Auto-slide every 5s
+
+        // EMI Calculator
+        function calculateEMI() {
+            const principal = parseFloat(document.getElementById('loan-amount').value) || 0;
+            const rate = parseFloat(document.getElementById('interest-rate').value) / 12 / 100;
+            const tenure = parseFloat(document.getElementById('tenure').value) * 12;
+            if (principal && rate && tenure) {
+                const emi = (principal * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
+                document.getElementById('emi-result').textContent = `Monthly EMI: ₹${emi.toFixed(2)}`;
+                document.getElementById('emi-result').classList.remove('hidden');
+            }
+        }
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', e => {
+            e.preventDefault();
+            const params = {
+                from_name: document.getElementById('user_name').value,
+                from_email: document.getElementById('user_email').value,
+                from_phone: document.getElementById('user_phone').value,
+                message: document.getElementById('message').value,
+            };
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params).then(() => {
+                alert('Enquiry sent successfully!');
+                e.target.reset();
+            }).catch(() => alert('Failed to send. Please try again.'));
+        });
+    </script>
+
+        <!-- WhatsApp Floating Button -->
+     <div class="fixed bottom-6 right-6 z-50 group">
+         <a href="https://wa.me/919876543210?text=Hi,%20I%20am%20interested%20in%20your%20projects.%20Please%20send%20details%20and%20brochure."
+            target="_blank"
+            class="flex items-center justify-center w-16 h-16 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition   transform hover:scale-110">
+             <i class="fab fa-whatsapp text-3xl"></i>
+         </a>
+         <span class="absolute right-20 top-4 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm whitespace-nowrap opacity-0     group-hover:opacity-100 transition">
+             Chat on WhatsApp
+         </span>
+     </div>
+</body>
+</html>
